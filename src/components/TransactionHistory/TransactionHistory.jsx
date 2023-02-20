@@ -12,7 +12,7 @@ export const TransactionHistory = ({ items }) => {
     <TransactionTable>
       <Thead>
         <tr>
-          <CaptionTransaction>Type</CaptionTransaction>
+                  <CaptionTransaction>Type</CaptionTransaction>
           <CaptionTransaction>Amount</CaptionTransaction>
           <CaptionTransaction>Currency</CaptionTransaction>
         </tr>
@@ -26,8 +26,8 @@ export const TransactionHistory = ({ items }) => {
              
             }}
             >
-                
-            <TdTransaction>{type}</TdTransaction>
+  
+            <TdTransaction>{capitalizeFirstLetter(type)}</TdTransaction>
             <TdTransaction>{amount}</TdTransaction>
             <TdTransaction>{currency}</TdTransaction>
           </tr>
@@ -35,6 +35,10 @@ export const TransactionHistory = ({ items }) => {
       </Tbody>
     </TransactionTable>
   );
+};
+
+ function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 TransactionHistory.protoType = {
